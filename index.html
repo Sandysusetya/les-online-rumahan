@@ -1,1 +1,878 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimbel Rumahan - Les Online Interaktif SD (Matematika & IPAS)</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts (Plus Jakarta Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #06b6d4;
+            --accent-color: #f59e0b;
+            --dark-color: #0f172a;
+            --light-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+            padding: 110px 0 80px 0;
+        }
+        .hero-badge {
+            background-color: #dbeafe;
+            color: var(--primary-dark);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-custom {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            background: #ffffff;
+        }
+        .card-custom:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .program-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .bg-prog-a { background-color: #fef3c7; color: #d97706; }
+        .bg-prog-b { background-color: #e0e7ff; color: #4338ca; }
+        .bg-prog-c { background-color: #dcfce7; color: #15803d; }
+
+        .schedule-box {
+            background: #ffffff;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .session-badge {
+            background-color: #f1f5f9;
+            color: #475569;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            color: #64748b;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .rule-card {
+            border-left: 4px solid var(--accent-color);
+            background: #fffbe0;
+            border-radius: 12px;
+            padding: 16px 20px;
+        }
+        .cta-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 24px;
+            color: white;
+            padding: 50px 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-4" href="#">
+                🎓 Bimbel<span class="text-dark">Rumahan</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4 fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#jadwal">Jadwal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#target">Target Belajar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#perlengkapan">Perlengkapan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rules">Tata Tertib</a></li>
+                </ul>
+                <a href="#daftar" class="btn btn-primary px-4 py-2 rounded-pill fw-bold shadow-sm">Daftar Sekarang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7">
+                    <div class="hero-badge mb-3">
+                        ✨ Bimbingan Belajar Online SD Interaktif
+                    </div>
+                    <h1 class="display-4 fw-extrabold mb-4">
+                        Bantu Anak Kuasai <span class="gradient-text">Matematika & IPAS</span> Tanpa Stres dari Rumah!
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Program les online yang terstruktur untuk memperkuat fondasi numerasi, literasi, dan persiapan ujian sekolah jenjang SD (Usia 6–12 Tahun).
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#daftar" class="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-bold shadow">
+                            <i class="bi bi-whatsapp me-2"></i>Daftar Sekarang
+                        </a>
+                        <a href="#program" class="btn btn-outline-secondary btn-lg px-4 py-3 rounded-pill fw-bold">
+                            Pilihan Program
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card card-custom p-4 text-center">
+                        <div class="p-4 bg-light rounded-4 mb-3">
+                            <span class="display-1">🎓</span>
+                        </div>
+                        <h4 class="fw-bold mb-2">Les Online Interaktif</h4>
+                        <p class="text-muted small">Pendampingan belajar yang aman, nyaman, dan ramah anak.</p>
+                        <div class="d-flex justify-content-around border-top pt-3 mt-2">
+                            <div>
+                                <h5 class="fw-bold text-primary mb-0">2 Mapel</h5>
+                                <small class="text-muted">Matematika & IPAS</small>
+                            </div>
+                            <div class="border-end"></div>
+                            <div>
+                                <h5 class="fw-bold text-primary mb-0">3 Sesi</h5>
+                                <small class="text-muted">Selasa & Kamis</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM SECTION -->
+    <section id="program" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h2 class="fw-bold display-6">Pilihan Program Belajar 🎓</h2>
+                <p class="text-muted">Disusun berjenjang sesuai dengan tingkat perkembangan usia anak.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Kelompok A -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-4">
+                        <div class="program-icon bg-prog-a">🧸</div>
+                        <span class="badge bg-warning text-dark align-self-start mb-2 rounded-pill px-3 py-2 fw-bold">Usia 6 - 8 Tahun</span>
+                        <h4 class="fw-bold mb-3">Kelompok A</h4>
+                        <p class="text-muted mb-4">Belajar dasar membaca, menulis, dan matematika sederhana dengan alat bantu konkret.</p>
+                    </div>
+                </div>
+                <!-- Kelompok B -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-4">
+                        <div class="program-icon bg-prog-b">🧕🏻</div>
+                        <span class="badge bg-indigo text-white align-self-start mb-2 rounded-pill px-3 py-2 fw-bold" style="background-color: #6366f1;">Usia 9 - 10 Tahun</span>
+                        <h4 class="fw-bold mb-3">Kelompok B</h4>
+                        <p class="text-muted mb-4">Mengembangkan keterampilan berpikir kritis, logika hitung, dan kreativitas.</p>
+                    </div>
+                </div>
+                <!-- Kelompok C -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-4">
+                        <div class="program-icon bg-prog-c">🚀</div>
+                        <span class="badge bg-success text-white align-self-start mb-2 rounded-pill px-3 py-2 fw-bold">Usia 9 - 12 Tahun</span>
+                        <h4 class="fw-bold mb-3">Kelompok C</h4>
+                        <p class="text-muted mb-4">Pembelajaran lanjutan, penalaran matematis, dan persiapan ujian sekolah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JADWAL SECTION -->
+    <section id="jadwal" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-5">
+                    <div class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">📅 Waktu Belajar</div>
+                    <h2 class="fw-bold display-6 mb-3">Jadwal Kelas Online</h2>
+                    <p class="text-muted mb-4">Setiap hari <strong>Selasa dan Kamis</strong> dengan durasi terstruktur agar anak tetap fokus.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="vstack gap-3">
+                        <div class="schedule-box d-flex justify-content-between align-items-center">
+                            <div><strong>⏰ Sesi 1</strong></div>
+                            <span class="session-badge">19.30 - 20.00 WIB</span>
+                        </div>
+                        <div class="schedule-box d-flex justify-content-between align-items-center" style="border-left-color: #06b6d4;">
+                            <div><strong>⏰ Sesi 2</strong></div>
+                            <span class="session-badge">20.10 - 20.40 WIB</span>
+                        </div>
+                        <div class="schedule-box d-flex justify-content-between align-items-center" style="border-left-color: #10b981;">
+                            <div><strong>⏰ Sesi 3</strong></div>
+                            <span class="session-badge">20.50 - 21.20 WIB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="daftar" class="py-5">
+        <div class="container text-center">
+            <div class="cta-banner shadow-lg">
+                <h2 class="display-6 fw-bold mb-3">Daftarkan Si Kecil Sekarang!</h2>
+                <p class="mb-4 opacity-90">Kuota terbatas untuk menjaga efektivitas dan kualitas belajar.</p>
+                <a href="https://wa.me/" target="_blank" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold text-dark">
+                    <i class="bi bi-whatsapp me-2"></i> Konsultasi & Daftar via WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+Keunggulan Layout Ini:
+Bootstrap 5 CDN: Tidak perlu mengunduh file CSS/JS lokal, tinggal buka file di browser.
+
+Fitur Tab Navigation: Target Kemampuan Numerasi (Kelas 1–2, 3–4, 5–6) dan Literasi dikemas rapi dalam fitur Tab Navigation agar halaman tidak terlalu panjang.
+
+Kartu Tata Tertib (Rules): Didesain dengan gaya highlight alert card yang ramah dibaca orang tua.
+
+Responsi Mobile: Tampilan otomatis menyesuaikan dengan layar HP, tablet, maupun laptop.
+
+
+
+
+Your Kementerian Pendidikan dan Kebudayaan Indonesia (SD) chats aren't used to improve our models. Gemini is AI and can make mistakes. Your privacy and GeminiOpens in a new window
+
+Constructing Python Script
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimbel Rumahan - Les Online Interaktif SD (Matematika & IPAS)</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts (Plus Jakarta Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #06b6d4;
+            --accent-color: #f59e0b;
+            --dark-color: #0f172a;
+            --light-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+            padding: 100px 0 80px 0;
+            position: relative;
+        }
+        .hero-badge {
+            background-color: #dbeafe;
+            color: var(--primary-dark);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-custom {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            background: #ffffff;
+        }
+        .card-custom:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .program-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .bg-prog-a { background-color: #fef3c7; color: #d97706; }
+        .bg-prog-b { background-color: #e0e7ff; color: #4338ca; }
+        .bg-prog-c { background-color: #dcfce7; color: #15803d; }
+
+        .schedule-box {
+            background: #ffffff;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .session-badge {
+            background-color: #f1f5f9;
+            color: #475569;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            color: #64748b;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .rule-card {
+            border-left: 4px solid var(--accent-color);
+            background: #fffbe0;
+            border-radius: 12px;
+            padding: 16px 20px;
+        }
+        .cta-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 24px;
+            color: white;
+            padding: 50px 30px;
+        }
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #eff6ff;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-4" href="#">
+                🎓 Bimbel<span class="text-dark">Rumahan</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4 fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#jadwal">Jadwal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#target">Target Belajar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#perlengkapan">Perlengkapan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rules">Tata Tertib</a></li>
+                </ul>
+                <a href="#daftar" class="btn btn-primary px-4 py-2 rounded-pill fw-bold shadow-sm">Daftar Sekarang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7">
+                    <div class="hero-badge mb-3">
+                        ✨ bimbingan Belajar Rumahan Online SD
+                    </div>
+                    <h1 class="display-4 fw-extrabold mb-4">
+                        Bantu Anak Kuasai <span class="gradient-text">Matematika & IPAS</span> Tanpa Stres dari Rumah!
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Program belajar interaktif yang dirancang khusus untuk memperkuat fondasi numerasi, literasi, dan persiapan ujian sekolah anak jenjang SD (Usia 6–12 Tahun).
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#daftar" class="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-bold shadow">
+                            <i class="bi bi-whatsapp me-2"></i>Daftar Kelas Online
+                        </a>
+                        <a href="#program" class="btn btn-outline-secondary btn-lg px-4 py-3 rounded-pill fw-bold">
+                            Lihat Pilihan Program
+                        </a>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center gap-4 text-muted small fw-semibold">
+                        <div><i class="bi bi-check-circle-fill text-success me-1"></i> Kelas Interaktif</div>
+                        <div><i class="bi bi-check-circle-fill text-success me-1"></i> Kelompok Kecil</div>
+                        <div><i class="bi bi-check-circle-fill text-success me-1"></i> Pendampingan Rutin</div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="position-relative">
+                        <div class="card card-custom p-4 text-center">
+                            <div class="p-4 bg-light rounded-4 mb-3">
+                                <span class="display-1">🎓</span>
+                            </div>
+                            <h4 class="fw-bold mb-2">Bimbingan Belajar Rumahan</h4>
+                            <p class="text-muted small">Suasana belajar hangat, fokus, dan interaktif langsung dari rumah Anda.</p>
+                            <div class="d-flex justify-content-around border-top pt-3 mt-2">
+                                <div>
+                                    <h5 class="fw-bold text-primary mb-0">2 Mapel</h5>
+                                    <small class="text-muted">Matematika & IPAS</small>
+                                </div>
+                                <div class="border-end"></div>
+                                <div>
+                                    <h5 class="fw-bold text-primary mb-0">3 Kelompok</h5>
+                                    <small class="text-muted">Usia 6 - 12 Thn</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM SECTION -->
+    <section id="program" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h2 class="fw-bold display-6">Pilihan Program Belajar 🎓</h2>
+                <p class="text-muted">Program disusun berjenjang sesuai dengan tingkat perkembangan usia dan kebutuhan belajar anak.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Kelompok A -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-4">
+                        <div class="program-icon bg-prog-a">🧸</div>
+                        <span class="badge bg-warning text-dark align-self-start mb-2 rounded-pill px-3 py-2 fw-bold">Usia 6 - 8 Tahun</span>
+                        <h4 class="fw-bold mb-3">Kelompok A</h4>
+                        <p class="text-muted mb-4">Fokus pada pengenalan dasar-dasar akademik awal dengan metode yang menyenangkan.</p>
+                        <ul class="list-unstyled mb-0 space-y-2">
+                            <li class="mb-2"><i class="bi bi-check2-circle text-warning me-2 fw-bold"></i> Belajar dasar membaca & menulis</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-warning me-2 fw-bold"></i> Mengenal matematika sederhana</li>
+                            <li class="mb-2"><li class="mb-2"><i class="bi bi-check2-circle text-warning me-2 fw-bold"></i> Menggunakan benda konkret / gambar</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Kelompok B -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-4">
+                        <div class="program-icon bg-prog-b">🧕🏻</div>
+                        <span class="badge bg-indigo text-white align-self-start mb-2 rounded-pill px-3 py-2 fw-bold" style="background-color: #6366f1;">Usia 9 - 10 Tahun</span>
+                        <h4 class="fw-bold mb-3">Kelompok B</h4>
+                        <p class="text-muted mb-4">Pengembangan logika berpikir, pemahaman konsep, dan pengasahan kreativitas.</p>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2 fw-bold"></i> Penguatan operasi hitung 4 dasar</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2 fw-bold"></i> Mengembangkan logika & kreativitas</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2 fw-bold"></i> Pemahaman teks & ide pokok</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Kelompok C -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-4">
+                        <div class="program-icon bg-prog-c">🚀</div>
+                        <span class="badge bg-success text-white align-self-start mb-2 rounded-pill px-3 py-2 fw-bold">Usia 9 - 12 Tahun</span>
+                        <h4 class="fw-bold mb-3">Kelompok C</h4>
+                        <p class="text-muted mb-4">Pembelajaran tingkat lanjutan, penalaran matematis, dan persiapan menghadapi ujian.</p>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2 fw-bold"></i> Pembelajaran lanjutan & penalaran</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2 fw-bold"></i> Pemecahan masalah kontekstual</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2 fw-bold"></i> Persiapan ujian sekolah & tugas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JADWAL SECTION -->
+    <section id="jadwal" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-5">
+                    <div class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">📅 Waktu Belajar</div>
+                    <h2 class="fw-bold display-6 mb-3">Jadwal Kelas Online Interaktif</h2>
+                    <p class="text-muted mb-4">
+                        Kelas dilaksanakan secara rutin setiap minggu dengan pilihan waktu sesi yang fleksibel agar siswa dapat belajar secara konsisten tanpa merasa terbeban.
+                    </p>
+                    <div class="p-3 bg-light rounded-4 d-flex align-items-center gap-3 mb-3">
+                        <div class="fs-1">🗓️</div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Hari Belajar</h6>
+                            <p class="mb-0 text-primary fw-bold">Setiap Hari Selasa & Kamis</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="schedule-box d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="fs-3">⏰</div>
+                                    <div>
+                                        <h6 class="fw-bold mb-0">Sesi 1</h6>
+                                        <small class="text-muted">Kelompok Pembelajaran 1</small>
+                                    </div>
+                                </div>
+                                <span class="session-badge fs-6">19.30 - 20.00 WIB</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="schedule-box d-flex align-items-center justify-content-between" style="border-left-color: #06b6d4;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="fs-3">⏰</div>
+                                    <div>
+                                        <h6 class="fw-bold mb-0">Sesi 2</h6>
+                                        <small class="text-muted">Kelompok Pembelajaran 2</small>
+                                    </div>
+                                </div>
+                                <span class="session-badge fs-6">20.10 - 20.40 WIB</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="schedule-box d-flex align-items-center justify-content-between" style="border-left-color: #10b981;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="fs-3">⏰</div>
+                                    <div>
+                                        <h6 class="fw-bold mb-0">Sesi 3</h6>
+                                        <small class="text-muted">Kelompok Pembelajaran 3</small>
+                                    </div>
+                                </div>
+                                <span class="session-badge fs-6">20.50 - 21.20 WIB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARGET KEMAMPUAN DASAR SECTION -->
+    <section id="target" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mx-auto mb-5" style="max-width: 650px;">
+                <h2 class="fw-bold display-6">Target Kemampuan Dasar 🎯</h2>
+                <p class="text-muted">Kurikulum yang terstruktur untuk memastikan anak mencapai kompetensi numerasi dan literasi sesuai jenjang kelasnya.</p>
+            </div>
+
+            <!-- TAB NAV -->
+            <ul class="nav nav-pills justify-content-center mb-4" id="targetTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="num-tab" data-bs-toggle="tab" data-bs-target="#num-pane" type="button" role="tab">
+                        🧮 Numerasi (Matematika)
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="lit-tab" data-bs-toggle="tab" data-bs-target="#lit-pane" type="button" role="tab">
+                        📚📖 Literasi (Bahasa & Pemahaman)
+                    </button>
+                </li>
+            </ul>
+
+            <!-- TAB CONTENT -->
+            <div class="tab-content" id="targetTabContent">
+                <!-- NUMERASI -->
+                <div class="tab-pane fade show active" id="num-pane" role="tabpanel">
+                    <div class="row g-4">
+                        <!-- Kelas 1-2 -->
+                        <div class="col-md-4">
+                            <div class="card card-custom p-4">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <span class="badge bg-primary fs-6 px-3 py-2 rounded-pill">Kelas 1 - 2</span>
+                                </div>
+                                <h5 class="fw-bold mb-3">Fondasi Angka & Hitung</h5>
+                                <ul class="list-unstyled text-muted small space-y-2">
+                                    <li class="mb-2">🔹 Mengenal, membaca, menulis, mengurutkan & membandingkan bilangan cacah.</li>
+                                    <li class="mb-2">🔹 Operasi hitung penjumlahan & pengurangan dasar.</li>
+                                    <li class="mb-2">🔹 Menyelesaikan masalah sederhana dalam kehidupan sehari-hari.</li>
+                                    <li class="mb-2">🔹 Menggunakan benda konkret atau gambar untuk pemahaman konsep.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Kelas 3-4 -->
+                        <div class="col-md-4">
+                            <div class="card card-custom p-4">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <span class="badge bg-info text-white fs-6 px-3 py-2 rounded-pill">Kelas 3 - 4</span>
+                                </div>
+                                <h5 class="fw-bold mb-3">Pengembangan Konsep</h5>
+                                <ul class="list-unstyled text-muted small">
+                                    <li class="mb-2">🔹 Memahami bilangan cacah, pecahan sederhana & desimal.</li>
+                                    <li class="mb-2">🔹 Operasi hitung 4 dasar (penjumlahan, pengurangan, perkalian, pembagian) secara tepat & efisien.</li>
+                                    <li class="mb-2">🔹 Pengukuran panjang, berat, waktu, luas, & volume (satuan baku).</li>
+                                    <li class="mb-2">🔹 Sifat-sifat bangun datar & bangun ruang sederhana.</li>
+                                    <li class="mb-2">🔹 Mengumpulkan & menyajikan data sederhana (tabel/diagram).</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Kelas 5-6 -->
+                        <div class="col-md-4">
+                            <div class="card card-custom p-4">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <span class="badge bg-dark fs-6 px-3 py-2 rounded-pill">Kelas 5 - 6</span>
+                                </div>
+                                <h5 class="fw-bold mb-3">Penalaran & Analisis</h5>
+                                <ul class="list-unstyled text-muted small">
+                                    <li class="mb-2">🔹 Bilangan bulat, pecahan, desimal, & persentase dalam situasi nyata.</li>
+                                    <li class="mb-2">🔹 Masalah perbandingan, skala, kecepatan, debit, & persen.</li>
+                                    <li class="mb-2">🔹 Menghitung keliling, luas, & volume bangun datar/ruang.</li>
+                                    <li class="mb-2">🔹 Mengolah & menafsirkan data tabel serta berbagai jenis diagram.</li>
+                                    <li class="mb-2">🔹 Penalaran matematis, dugaan logis, & penarikan kesimpulan.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LITERASI -->
+                <div class="tab-pane fade" id="lit-pane" role="tabpanel">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="card card-custom p-4">
+                                <h4 class="fw-bold mb-4 text-center">Kompetensi Literasi Siswa 📖</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="p-3 border rounded-3 bg-light">
+                                            <h6 class="fw-bold text-primary"><i class="bi bi-book me-2"></i>Kelancaran Membaca</h6>
+                                            <p class="small text-muted mb-0">Membaca kata, kalimat, dan teks sederhana dengan lancar dan intonasi yang tepat.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 border rounded-3 bg-light">
+                                            <h6 class="fw-bold text-primary"><i class="bi bi-lightbulb me-2"></i>Pemahaman Teks</h6>
+                                            <p class="small text-muted mb-0">Memahami informasi, menemukan ide pokok, dan poin penting dari bacaan/sumber lisan.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 border rounded-3 bg-light">
+                                            <h6 class="fw-bold text-primary"><i class="bi bi-chat-quote me-2"></i>Komunikasi Mandiri</h6>
+                                            <p class="small text-muted mb-0">Menyampaikan kembali isi bacaan menggunakan bahasa sendiri secara lisan maupun tulisan.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 border rounded-3 bg-light">
+                                            <h6 class="fw-bold text-primary"><i class="bi bi-pencil-square me-2"></i>Keterampilan Menulis & Minat Baca</h6>
+                                            <p class="small text-muted mb-0">Menulis kalimat sederhana dengan ejaan benar serta menumbuhkan kecintaan merawat buku.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPEL & PERLENGKAPAN SECTION -->
+    <section id="perlengkapan" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row g-4">
+                <!-- Mapel -->
+                <div class="col-md-6">
+                    <div class="card card-custom p-4 bg-light border-0">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="icon-box bg-primary text-white">📑</div>
+                            <div>
+                                <h4 class="fw-bold mb-0">Mata Pelajaran Utama</h4>
+                                <small class="text-muted">Fokus kurikulum bimbingan</small>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="p-3 bg-white rounded-3 shadow-sm border text-center">
+                                    <span class="fs-2">🧮</span>
+                                    <h6 class="fw-bold mt-2 mb-0">Matematika</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 bg-white rounded-3 shadow-sm border text-center">
+                                    <span class="fs-2">🔬</span>
+                                    <h6 class="fw-bold mt-2 mb-0">IPAS</h6>
+                                    <small class="text-muted text-truncate d-block">Ilmu Pengetahuan Alam & Sosial</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perlengkapan -->
+                <div class="col-md-6">
+                    <div class="card card-custom p-4 bg-light border-0">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="icon-box bg-success text-white">💻</div>
+                            <div>
+                                <h4 class="fw-bold mb-0">Perlengkapan Belajar</h4>
+                                <small class="text-muted">Persiapan teknis sebelum sesi</small>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush bg-transparent">
+                            <li class="list-group-bg bg-transparent border-bottom py-2 d-flex align-items-center gap-2">
+                                <i class="bi bi-laptop text-success fs-5"></i> Laptop Entry Level atau Smartphone (HP)
+                            </li>
+                            <li class="list-group-bg bg-transparent border-bottom py-2 d-flex align-items-center gap-2">
+                                <i class="bi bi-envelope text-success fs-5"></i> Akun Email aktif (Gmail)
+                            </li>
+                            <li class="list-group-bg bg-transparent py-2 d-flex align-items-center gap-2">
+                                <i class="bi bi-pencil-fill text-success fs-5"></i> Alat Tulis Lengkap (Buku catatan, pulpen, pensil, penghapus)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RULES SECTION -->
+    <section id="rules" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h2 class="fw-bold display-6">Tata Tertib Online 📜</h2>
+                <p class="text-muted">Aturan kelas diciptakan demi menjaga kondusivitas dan kenyamanan bersama selama proses pembelajaran.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="rule-card mb-3 d-flex align-items-start gap-3">
+                        <span class="fs-4">⏰</span>
+                        <div>
+                            <h6 class="fw-bold mb-1">Hadir Tepat Waktu</h6>
+                            <p class="mb-0 text-muted small">Siswa diharapkan sudah masuk ke ruang Zoom / Meet 5 menit sebelum sesi dimulai.</p>
+                        </div>
+                    </div>
+                    <div class="rule-card mb-3 d-flex align-items-start gap-3">
+                        <span class="fs-4">🎒</span>
+                        <div>
+                            <h6 class="fw-bold mb-1">Kesiapan Alat Belajar</h6>
+                            <p class="mb-0 text-muted small">Memastikan baterai gadget terisi dan alat tulis sudah disiapkan di meja belajar.</p>
+                        </div>
+                    </div>
+                    <div class="rule-card mb-3 d-flex align-items-start gap-3">
+                        <span class="fs-4">👔</span>
+                        <div>
+                            <h6 class="fw-bold mb-1">Adab & Etika Berkomunikasi</h6>
+                            <p class="mb-0 text-muted small">Berpakaian rapi dan menggunakan bahasa yang santun saat berbicara dengan pengajar maupun teman.</p>
+                        </div>
+                    </div>
+                    <div class="rule-card mb-3 d-flex align-items-start gap-3">
+                        <span class="fs-4">👨‍👩‍👧</span>
+                        <div>
+                            <h6 class="fw-bold mb-1">Pendampingan Orang Tua (Kelompok A)</h6>
+                            <p class="mb-0 text-muted small">Untuk peserta usia 6-8 tahun (Kelompok A), hendaknya didampingi oleh orang tua saat kelas berlangsung.</p>
+                        </div>
+                    </div>
+                    <div class="rule-card d-flex align-items-start gap-3">
+                        <span class="fs-4">📝</span>
+                        <div>
+                            <h6 class="fw-bold mb-1">Tugas & Latihan</h6>
+                            <p class="mb-0 text-muted small">Mengerjakan latihan mandiri dan mengumpulkannya secara tepat waktu sesuai tenggat yang ditentukan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="daftar" class="py-5">
+        <div class="container">
+            <div class="cta-banner text-center shadow-lg">
+                <h2 class="display-5 fw-bold mb-3">Siap Tingkatkan Prestasi Si Kecil?</h2>
+                <p class="lead mb-4 opacity-90 mx-auto" style="max-width: 650px;">
+                    Kuota per sesi sangat terbatas demi menjaga kualitas pendampingan interaktif. Amankan tempat belajar anak Anda sekarang!
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="https://wa.me/?text=Halo%20Bimbel%20Rumahan,%20saya%20ingin%20mendaftar%20program%20les" target="_blank" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold text-dark shadow">
+                        <i class="bi bi-whatsapp me-2"></i> Hubungi via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1 fw-semibold">🎓 Bimbel Rumahan - Les Online Interaktif Matematika & IPAS SD</p>
+            <p class="text-muted small mb-0">&copy; 2026 Bimbel Rumahan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+landing_page_les_rumahan.html
+Displaying landing_page_les_rumahan.html.
