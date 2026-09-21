@@ -10,6 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts (Plus Jakarta Sans) -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         :root {
             --primary-color: #3b82f6;
@@ -70,6 +73,10 @@
             justify-content: center;
             font-size: 2rem;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .card-custom:hover .program-icon {
+            transform: scale(1.1) rotate(5deg);
         }
         .bg-prog-a { background-color: #fef3c7; color: #d97706; }
         .bg-prog-b { background-color: #e0e7ff; color: #4338ca; }
@@ -81,6 +88,10 @@
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+        }
+        .schedule-box:hover {
+            transform: translateX(10px);
         }
         .session-badge {
             background-color: #f1f5f9;
@@ -99,12 +110,14 @@
             border: 1px solid #e2e8f0;
             margin-right: 10px;
             margin-bottom: 10px;
+            transition: all 0.3s ease;
         }
         .nav-pills .nav-link.active {
             background-color: var(--primary-color);
             color: #ffffff;
             border-color: var(--primary-color);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
         }
 
         .rule-card {
@@ -112,6 +125,11 @@
             background: #fffbe0;
             border-radius: 12px;
             padding: 16px 20px;
+            transition: all 0.3s ease;
+        }
+        .rule-card:hover {
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
+            transform: translateY(-3px);
         }
         .cta-banner {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
@@ -130,12 +148,31 @@
             justify-content: center;
             font-size: 1.3rem;
         }
+
+        /* --- CUSTOM ANIMATIONS --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-shadow {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+        .pulse-btn {
+            animation: pulse-shadow 2s infinite;
+        }
     </style>
 </head>
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" data-aos="fade-down">
         <div class="container">
             <a class="navbar-brand fw-bold text-primary fs-4" href="#">
                 🎓 Bimbel<span class="text-dark">Rumahan</span>
@@ -152,7 +189,7 @@
                     <li class="nav-item"><a class="nav-link" href="#perlengkapan">Perlengkapan</a></li>
                     <li class="nav-item"><a class="nav-link" href="#rules">Tata Tertib</a></li>
                 </ul>
-                <a href="#daftar" class="btn btn-primary px-4 py-2 rounded-pill fw-bold shadow-sm">Daftar Sekarang</a>
+                <a href="#daftar" class="btn btn-primary px-4 py-2 rounded-pill fw-bold shadow-sm pulse-btn">Daftar Sekarang</a>
             </div>
         </div>
     </nav>
@@ -161,7 +198,7 @@
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center gy-5">
-                <div class="col-lg-7">
+                <div class="col-lg-7" data-aos="fade-right" data-aos-duration="1000">
                     <div class="hero-badge mb-3">
                         ✨ Bimbingan Belajar Online dari Rumah.
                     </div>
@@ -170,11 +207,11 @@
                     </h1>
                     <p class="lead text-muted mb-4">
                         Berfokus kepada pembentukan budaya belajar dari konsistensi alokasi waktu dan dengan metode interaktif menyenangkan.
-                       <br>
+                        <br><br>
                         Program belajar interaktif yang dirancang khusus untuk memperkuat fondasi numerasi, literasi, dan persiapan ujian sekolah anak jenjang SD (Usia 6–12 Tahun).
                     </p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="#daftar" class="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-bold shadow">
+                        <a href="#daftar" class="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-bold shadow pulse-btn">
                             <i class="bi bi-whatsapp me-2"></i>Daftar Kelas Online
                         </a>
                         <a href="#program" class="btn btn-outline-secondary btn-lg px-4 py-3 rounded-pill fw-bold">
@@ -187,15 +224,15 @@
                         <div><i class="bi bi-check-circle-fill text-success me-1"></i> Pendampingan Rutin</div>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="position-relative">
+                <div class="col-lg-5" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="position-relative floating">
                         <div class="card card-custom p-4 text-center">
                             <h4 class="fw-bold mb-2">Bimbingan Belajar Rumahan</h4>
                             <p class="text-muted small">Suasana belajar hangat, fokus, dan interaktif langsung dari rumah Anda.</p>
                             <div class="p-4 bg-light rounded-4 mb-3">
                                 <small class="text-secondary">Bersama : </small>
-                                   <div class="dflex align-items-center gap-3">
-                                      <img src="assets/fotoku.jpg" class="rounded-circle" width="50%" height="50%" style="object-fit: cover;" alt="Avatar">
+                                   <div class="dflex align-items-center gap-3 mt-2">
+                                      <img src="assets/fotoku.jpg" class="rounded-circle mb-3 shadow-sm" width="80px" height="80px" style="object-fit: cover;" alt="Avatar">
                                       <div>
                                         <h6 class="mb-0 fw-bold">Sandy susetya,S.Kom.,Gr.</h6>
                                         <small class="text-secondary">Fasilitator</small>
@@ -224,13 +261,13 @@
     <!-- PROGRAM SECTION -->
     <section id="program" class="py-5">
         <div class="container py-4">
-            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;" data-aos="fade-up">
                 <h2 class="fw-bold display-6">Pilihan Program Belajar 🎓</h2>
                 <p class="text-muted">Program disusun berjenjang sesuai dengan tingkat perkembangan usia dan kebutuhan belajar anak.</p>
             </div>
             <div class="row g-4">
                 <!-- Kelompok A -->
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card card-custom p-4">
                         <div class="program-icon bg-prog-a">🧸</div>
                         <span class="badge bg-warning text-dark align-self-start mb-2 rounded-pill px-3 py-2 fw-bold">Usia 6 - 8 Tahun</span>
@@ -239,12 +276,12 @@
                         <ul class="list-unstyled mb-0 space-y-2">
                             <li class="mb-2"><i class="bi bi-check2-circle text-warning me-2 fw-bold"></i> Belajar dasar membaca & menulis</li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-warning me-2 fw-bold"></i> Mengenal matematika sederhana</li>
-                            <li class="mb-2"><li class="mb-2"><i class="bi bi-check2-circle text-warning me-2 fw-bold"></i> Menggunakan benda konkret / gambar</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-warning me-2 fw-bold"></i> Menggunakan benda konkret / gambar</li>
                         </ul>
                     </div>
                 </div>
                 <!-- Kelompok B -->
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card card-custom p-4">
                         <div class="program-icon bg-prog-b">🧕🏻</div>
                         <span class="badge bg-indigo text-white align-self-start mb-2 rounded-pill px-3 py-2 fw-bold" style="background-color: #6366f1;">Usia 9 - 10 Tahun</span>
@@ -258,7 +295,7 @@
                     </div>
                 </div>
                 <!-- Kelompok C -->
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="card card-custom p-4">
                         <div class="program-icon bg-prog-c">🚀</div>
                         <span class="badge bg-success text-white align-self-start mb-2 rounded-pill px-3 py-2 fw-bold">Usia 9 - 12 Tahun</span>
@@ -279,7 +316,7 @@
     <section id="jadwal" class="py-5 bg-white">
         <div class="container py-4">
             <div class="row align-items-center gy-4">
-                <div class="col-lg-5">
+                <div class="col-lg-5" data-aos="fade-right">
                     <div class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">📅 Waktu Belajar</div>
                     <h2 class="fw-bold display-6 mb-3">Jadwal Kelas Online Interaktif</h2>
                     <p class="text-muted mb-4">
@@ -297,7 +334,7 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="row g-3">
-                        <div class="col-12">
+                        <div class="col-12" data-aos="fade-left" data-aos-delay="100">
                             <div class="schedule-box d-flex align-items-center justify-content-between">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="fs-3">⏰</div>
@@ -309,7 +346,7 @@
                                 <span class="session-badge fs-6">19.30 - 20.00 WIB</span>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12" data-aos="fade-left" data-aos-delay="200">
                             <div class="schedule-box d-flex align-items-center justify-content-between" style="border-left-color: #06b6d4;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="fs-3">⏰</div>
@@ -321,7 +358,7 @@
                                 <span class="session-badge fs-6">20.10 - 20.40 WIB</span>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12" data-aos="fade-left" data-aos-delay="300">
                             <div class="schedule-box d-flex align-items-center justify-content-between" style="border-left-color: #10b981;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="fs-3">⏰</div>
@@ -341,148 +378,76 @@
 
     <!-- BIAYA -->
     <section id="biaya" class="py-5 ">
-        <div class="container py-4">
-
+        <div class="container py-4" data-aos="zoom-in" data-aos-duration="800">
             <div class="text-center mx-auto mb-5" style="max-width: 680px;">
                 <div class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">
                     💰 Pilihan Biaya
                 </div>
-
                 <h2 class="fw-bold display-6">
                     Investasi Belajar Anak 📚
                 </h2>
-
                 <p class="text-muted">
                     Pilihan kafalah pembimbing agar hemat dan terjangkau. Dibayarkan setiap akhir bulan sesuai keluangan rizki. <br> Selain bisa transfer ke bank juga bisa melalui gopay.<br> Sebagai bentuk apreisiasi pembimbing ada beberapa paket sbb: <br>
                 </p>
                 <!-- TAB HARGA -->
                         <ul class="nav nav-pills justify-content-center mb-4" id="hargaTab" role="tablist">
-                        
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active"
-                                        id="reguler-tab"
-                                        data-bs-toggle="pill"
-                                        data-bs-target="#reguler"
-                                        type="button"
-                                        role="tab">
+                                <button class="nav-link active" id="reguler-tab" data-bs-toggle="pill" data-bs-target="#reguler" type="button" role="tab">
                                     🌱 Baik 
                                 </button>
                             </li>
-                        
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link"
-                                        id="intensif-tab"
-                                        data-bs-toggle="pill"
-                                        data-bs-target="#intensif"
-                                        type="button"
-                                        role="tab">
+                                <button class="nav-link" id="intensif-tab" data-bs-toggle="pill" data-bs-target="#intensif" type="button" role="tab">
                                     🚀 Oke 
                                 </button>
                             </li>
-                        
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link"
-                                        id="premium-tab"
-                                        data-bs-toggle="pill"
-                                        data-bs-target="#premium"
-                                        type="button"
-                                        role="tab">
+                                <button class="nav-link" id="premium-tab" data-bs-toggle="pill" data-bs-target="#premium" type="button" role="tab">
                                     🏆 Siap
                                 </button>
                             </li>
-                        
                         </ul>
-                        
                         
                         <!-- ISI TAB HARGA -->
                         <div class="tab-content text-center" id="hargaTabContent">
-                        
                             <!-- REGULER -->
-                            <div class="tab-pane fade show active"
-                                 id="reguler"
-                                 role="tabpanel">
-                        
-                                <div class="program-icon bg-prog-a mx-auto">
-                                    🌱
-                                </div>
-                        
-                                <h4 class="fw-bold">
-                                    Paket Baik
-                                </h4>
-                        
-                                <div class="price">
-                                    Rp125.000
-                                </div>
-                        
-                                <div class="price-period">
-                                    / bulan
-                                </div>
-                        
+                            <div class="tab-pane fade show active" id="reguler" role="tabpanel">
+                                <div class="program-icon bg-prog-a mx-auto">🌱</div>
+                                <h4 class="fw-bold">Paket Baik</h4>
+                                <div class="price fw-bold fs-3 text-dark">Rp125.000</div>
+                                <div class="price-period text-muted">/ bulan</div>
                             </div>
-                        
-                        
+                            
                             <!-- INTENSIF -->
-                            <div class="tab-pane fade"
-                                 id="intensif"
-                                 role="tabpanel">
-                        
-                                <div class="program-icon bg-prog-b mx-auto">
-                                    🚀
-                                </div>
-                        
-                                <h4 class="fw-bold">
-                                    Paket Oke 
-                                </h4>
-                        
-                                <div class="price">
-                                    Rp135.000
-                                </div>
-                        
-                                <div class="price-period">
-                                    / bulan
-                                </div>
-                        
+                            <div class="tab-pane fade" id="intensif" role="tabpanel">
+                                <div class="program-icon bg-prog-b mx-auto">🚀</div>
+                                <h4 class="fw-bold">Paket Oke</h4>
+                                <div class="price fw-bold fs-3 text-dark">Rp135.000</div>
+                                <div class="price-period text-muted">/ bulan</div>
                             </div>
-                        
-                        
+                            
                             <!-- PREMIUM -->
-                            <div class="tab-pane fade"
-                                 id="premium"
-                                 role="tabpanel">
-                        
-                                <div class="program-icon bg-prog-c mx-auto">
-                                    🏆
-                                </div>
-                        
-                                <h4 class="fw-bold">
-                                    Paket Siap
-                                </h4>
-                        
-                                <div class="price">
-                                    Rp150.000
-                                </div>
-                        
-                                <div class="price-period">
-                                    / bulan
-                                </div>
-                        
+                            <div class="tab-pane fade" id="premium" role="tabpanel">
+                                <div class="program-icon bg-prog-c mx-auto">🏆</div>
+                                <h4 class="fw-bold">Paket Siap</h4>
+                                <div class="price fw-bold fs-3 text-dark">Rp150.000</div>
+                                <div class="price-period text-muted">/ bulan</div>
                             </div>
-                        
                         </div>
             </div>
         </div>
+    </section>
 
-    
     <!-- TARGET KEMAMPUAN DASAR SECTION -->
     <section id="target" class="py-5">
         <div class="container py-4">
-            <div class="text-center mx-auto mb-5" style="max-width: 650px;">
+            <div class="text-center mx-auto mb-5" style="max-width: 650px;" data-aos="fade-up">
                 <h2 class="fw-bold display-6">Target Kemampuan Dasar 🎯</h2>
                 <p class="text-muted">Kurikulum yang terstruktur untuk memastikan anak mencapai kompetensi numerasi dan literasi sesuai jenjang kelasnya.</p>
             </div>
 
             <!-- TAB NAV -->
-            <ul class="nav nav-pills justify-content-center mb-4" id="targetTab" role="tablist">
+            <ul class="nav nav-pills justify-content-center mb-4" id="targetTab" role="tablist" data-aos="fade-up" data-aos-delay="100">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="num-tab" data-bs-toggle="tab" data-bs-target="#num-pane" type="button" role="tab">
                         🧮 Numerasi (Matematika)
@@ -496,7 +461,7 @@
             </ul>
 
             <!-- TAB CONTENT -->
-            <div class="tab-content" id="targetTabContent">
+            <div class="tab-content" id="targetTabContent" data-aos="fade-up" data-aos-delay="200">
                 <!-- NUMERASI -->
                 <div class="tab-pane fade show active" id="num-pane" role="tabpanel">
                     <div class="row g-4">
@@ -558,25 +523,25 @@
                                 <h4 class="fw-bold mb-4 text-center">Kompetensi Literasi Siswa 📖</h4>
                                 <div class="row g-3">
                                     <div class="col-md-6">
-                                        <div class="p-3 border rounded-3 bg-light">
+                                        <div class="p-3 border rounded-3 bg-light h-100">
                                             <h6 class="fw-bold text-primary"><i class="bi bi-book me-2"></i>Kelancaran Membaca</h6>
                                             <p class="small text-muted mb-0">Membaca kata, kalimat, dan teks sederhana dengan lancar dan intonasi yang tepat.</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="p-3 border rounded-3 bg-light">
+                                        <div class="p-3 border rounded-3 bg-light h-100">
                                             <h6 class="fw-bold text-primary"><i class="bi bi-lightbulb me-2"></i>Pemahaman Teks</h6>
                                             <p class="small text-muted mb-0">Memahami informasi, menemukan ide pokok, dan poin penting dari bacaan/sumber lisan.</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="p-3 border rounded-3 bg-light">
+                                        <div class="p-3 border rounded-3 bg-light h-100">
                                             <h6 class="fw-bold text-primary"><i class="bi bi-chat-quote me-2"></i>Komunikasi Mandiri</h6>
                                             <p class="small text-muted mb-0">Menyampaikan kembali isi bacaan menggunakan bahasa sendiri secara lisan maupun tulisan.</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="p-3 border rounded-3 bg-light">
+                                        <div class="p-3 border rounded-3 bg-light h-100">
                                             <h6 class="fw-bold text-primary"><i class="bi bi-pencil-square me-2"></i>Keterampilan Menulis & Minat Baca</h6>
                                             <p class="small text-muted mb-0">Menulis kalimat sederhana dengan ejaan benar serta menumbuhkan kecintaan merawat buku.</p>
                                         </div>
@@ -595,7 +560,7 @@
         <div class="container py-4">
             <div class="row g-4">
                 <!-- Mapel -->
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-right">
                     <div class="card card-custom p-4 bg-light border-0">
                         <div class="d-flex align-items-center gap-3 mb-4">
                             <div class="icon-box bg-primary text-white">📑</div>
@@ -623,7 +588,7 @@
                 </div>
 
                 <!-- Perlengkapan -->
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left">
                     <div class="card card-custom p-4 bg-light border-0">
                         <div class="d-flex align-items-center gap-3 mb-4">
                             <div class="icon-box bg-success text-white">💻</div>
@@ -652,41 +617,41 @@
     <!-- RULES SECTION -->
     <section id="rules" class="py-5">
         <div class="container py-4">
-            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;" data-aos="fade-up">
                 <h2 class="fw-bold display-6">Tata Tertib Online 📜</h2>
                 <p class="text-muted">Aturan kelas diciptakan demi menjaga kondusivitas dan kenyamanan bersama selama proses pembelajaran.</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="rule-card mb-3 d-flex align-items-start gap-3">
+                    <div class="rule-card mb-3 d-flex align-items-start gap-3" data-aos="fade-right" data-aos-delay="50">
                         <span class="fs-4">⏰</span>
                         <div>
                             <h6 class="fw-bold mb-1">Hadir Tepat Waktu</h6>
                             <p class="mb-0 text-muted small">Siswa diharapkan sudah masuk ke ruang Zoom / Meet 5 menit sebelum sesi dimulai.</p>
                         </div>
                     </div>
-                    <div class="rule-card mb-3 d-flex align-items-start gap-3">
+                    <div class="rule-card mb-3 d-flex align-items-start gap-3" data-aos="fade-right" data-aos-delay="150">
                         <span class="fs-4">🎒</span>
                         <div>
                             <h6 class="fw-bold mb-1">Kesiapan Alat Belajar</h6>
                             <p class="mb-0 text-muted small">Memastikan baterai gadget terisi dan alat tulis sudah disiapkan di meja belajar.</p>
                         </div>
                     </div>
-                    <div class="rule-card mb-3 d-flex align-items-start gap-3">
+                    <div class="rule-card mb-3 d-flex align-items-start gap-3" data-aos="fade-right" data-aos-delay="250">
                         <span class="fs-4">👔</span>
                         <div>
                             <h6 class="fw-bold mb-1">Adab & Etika Berkomunikasi</h6>
                             <p class="mb-0 text-muted small">Berpakaian rapi dan menggunakan bahasa yang santun saat berbicara dengan pengajar maupun teman.</p>
                         </div>
                     </div>
-                    <div class="rule-card mb-3 d-flex align-items-start gap-3">
+                    <div class="rule-card mb-3 d-flex align-items-start gap-3" data-aos="fade-right" data-aos-delay="350">
                         <span class="fs-4">👨‍👩‍👧</span>
                         <div>
                             <h6 class="fw-bold mb-1">Pendampingan Orang Tua (Kelompok A)</h6>
                             <p class="mb-0 text-muted small">Untuk peserta usia 6-8 tahun (Kelompok A), hendaknya didampingi oleh orang tua saat kelas berlangsung.</p>
                         </div>
                     </div>
-                    <div class="rule-card d-flex align-items-start gap-3">
+                    <div class="rule-card d-flex align-items-start gap-3" data-aos="fade-right" data-aos-delay="450">
                         <span class="fs-4">📝</span>
                         <div>
                             <h6 class="fw-bold mb-1">Tugas & Latihan</h6>
@@ -701,13 +666,13 @@
     <!-- CTA SECTION -->
     <section id="daftar" class="py-5">
         <div class="container">
-            <div class="cta-banner text-center shadow-lg">
+            <div class="cta-banner text-center shadow-lg" data-aos="zoom-in-up" data-aos-duration="1000">
                 <h2 class="display-5 fw-bold mb-3">Siap Tingkatkan Prestasi Si Kecil?</h2>
                 <p class="lead mb-4 opacity-90 mx-auto" style="max-width: 650px;">
                     Kuota per sesi sangat terbatas demi menjaga kualitas pendampingan interaktif. Amankan tempat belajar anak Anda sekarang!
                 </p>
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <a href="https://wa.me/?text=Halo%20Bimbel%20Rumahan,%20saya%20ingin%20mendaftar%20program%20les" target="_blank" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold text-dark shadow">
+                    <a href="https://wa.me/?text=Halo%20Bimbel%20Rumahan,%20saya%20ingin%20mendaftar%20program%20les" target="_blank" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold text-dark shadow pulse-btn">
                         <i class="bi bi-whatsapp me-2"></i> Hubungi via WhatsApp
                     </a>
                 </div>
@@ -725,5 +690,15 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi library animasi AOS
+        AOS.init({
+            duration: 800, // Durasi animasi dalam milidetik
+            once: true,    // Animasi hanya berjalan satu kali saat di-scroll
+            offset: 50     // Jarak sebelum elemen muncul (dalam pixel)
+        });
+    </script>
 </body>
 </html>
